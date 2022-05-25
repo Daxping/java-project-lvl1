@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.games;
+import hexlet.code.UserName;
+
 import java.util.Scanner;
 
 public class Even {
@@ -6,11 +8,11 @@ public class Even {
         System.out.println("Welcome to the Brain Games!");
         String userName = UserName.getName();
         System.out.println("Hello, " + userName + "!");
+        final int numberOfRounds = 3; // Число задаваемых вопросов
+        final int maxNumber = 100; // Диапазон случайных чисел от 0 до 100
         Scanner sc = new Scanner(System.in);
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        int numOfQuestions = 2 + 1; // Число задаваемых вопросов
-        int maxNumber = (2 * 2 * 2 * 2 * 2 * 2 * 2); // Диапазон случайных чисел от 0 до 128
-        for (var i = 0; i < numOfQuestions;) {
+        for (var i = 0; i < numberOfRounds;) {
             int number = (int) (Math.random() * maxNumber);
             String answer = number % 2 == 0 ? "yes" : "no";
             System.out.println("Question: " + number);
@@ -22,9 +24,9 @@ public class Even {
             if (result.equals("Correct!")) {
                 i++;
             } else {
-                i = numOfQuestions + 1;
+                i = numberOfRounds + 1;
             }
-            if (i == numOfQuestions) {
+            if (i == numberOfRounds) {
                 System.out.println("Congratulations, " + userName + "!");
             }
         }
