@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
 
 public class Engine {
     public static void getAnswer() {
@@ -26,6 +27,9 @@ public class Engine {
                     if (choice.equals("4")) {
                         result = Gcd.getAnswer();
                     }
+                    if (choice.equals("5")) {
+                        result = Progression.getAnswer();
+                    }
                     System.out.println(result);
                     if (result.equals("Correct!")) {
                         i++;
@@ -41,4 +45,3 @@ public class Engine {
         }
     }
 }
-

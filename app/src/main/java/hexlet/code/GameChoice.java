@@ -11,6 +11,7 @@ public class GameChoice {
                 2 - Even
                 3 - Calc
                 4 - GCD
+                5 - Progression
                 0 - Exit""");
         System.out.print("Your choice: ");
         String choice = sc.nextLine();
