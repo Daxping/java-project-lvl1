@@ -4,6 +4,7 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class Engine {
     public static void getAnswer() {
@@ -29,6 +30,9 @@ public class Engine {
                     }
                     if (choice.equals("5")) {
                         result = Progression.getAnswer();
+                    }
+                    if (choice.equals("6")) {
+                        result = Prime.getAnswer();
                     }
                     System.out.println(result);
                     if (result.equals("Correct!")) {

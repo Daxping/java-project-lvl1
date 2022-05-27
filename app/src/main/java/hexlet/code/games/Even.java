@@ -10,6 +10,7 @@ public class Even {
         int number = (int) (Math.random() * maxNumber);
         String answer = number % 2 == 0 ? "yes" : "no";
         System.out.println("Question: " + number);
+        System.out.print("Your answer: ");
         String evenAnswer = sc.nextLine();
         return evenAnswer.equals(answer) ? "Correct!"
                 : "'" + evenAnswer + "'" + " is wrong answer ;(. "
