@@ -1,28 +1,26 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
+import hexlet.code.Engine;
 
 public class Calc {
-    public static String getAnswer() {
-        final int maxNumber = 100;
-        Scanner sc = new Scanner(System.in);
+
+    public static void runGame() {
+        System.out.println("Welcome to the Brain Games!");
+        String userName = Engine.getUserName();
         System.out.println("What is the result of the expression?");
-        String[] operations = {"+", "-", "*"};
-        int a = (int) (Math.random() * maxNumber);
-        int b = (int) (Math.random() * maxNumber);
-        int indexOfOperation = (int) (Math.random() * operations.length);
-        String currentOperation = operations[indexOfOperation];
-        int result = switch (currentOperation) {
-            case "+" -> a + b;
-            case "-" -> a - b;
-            case "*" -> a * b;
-            default -> 0;
-        };
-        System.out.println("Question: " + a + currentOperation + b);
-        System.out.print("Your answer: ");
-        int calcAnswer = sc.nextInt();
-        return calcAnswer == result ? "Correct!"
-                : "'" + calcAnswer + "'" + " is wrong answer ;(. "
-                + "Correct answer was " + "'" + result + "'";
+        final int numberOfRounds = 3;
+        for (var i = 0; i < numberOfRounds;) {
+            String result = Engine.calc();
+            System.out.println(result);
+            if (result.equals("Correct!")) {
+                i++;
+            } else {
+                i = numberOfRounds + 1;
+                System.out.println("Let's try again, " + userName + "!");
+            }
+            if (i == numberOfRounds) {
+                System.out.println("Congratulations, " + userName + "!");
+            }
+        }
     }
 }

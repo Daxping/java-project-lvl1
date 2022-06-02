@@ -1,25 +1,25 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
+import hexlet.code.Engine;
 
 public class Prime {
-    public static String getAnswer() {
-        final int maxNumber = 100; // Диапазон случайных чисел от 0 до 100
-        Scanner sc = new Scanner(System.in);
+    public static void runGame() {
+        System.out.println("Welcome to the Brain Games!");
+        String userName = Engine.getUserName();
         System.out.println("Answer 'yes' if the number is prime, otherwise answer 'no'.");
-        int number = (int) (Math.random() * maxNumber);
-        int countDivider = 0;
-        for (var i = 1; i <= number; i++) {
-            if (number % i == 0) {
-                countDivider++;
+        final int numberOfRounds = 3;
+        for (var i = 0; i < numberOfRounds;) {
+            String result = Engine.prime();
+            System.out.println(result);
+            if (result.equals("Correct!")) {
+                i++;
+            } else {
+                i = numberOfRounds + 1;
+                System.out.println("Let's try again, " + userName + "!");
+            }
+            if (i == numberOfRounds) {
+                System.out.println("Congratulations, " + userName + "!");
             }
         }
-        String answer = countDivider <= 2 ? "yes" : "no";
-        System.out.println("Question: " + number);
-        System.out.print("Your answer: ");
-        String primeAnswer = sc.nextLine();
-        return primeAnswer.equals(answer) ? "Correct!"
-                : "'" + primeAnswer + "'" + " is wrong answer ;(. "
-                + "Correct answer was " + "'" + answer + "'";
     }
 }
