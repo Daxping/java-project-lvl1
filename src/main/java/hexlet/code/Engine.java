@@ -48,8 +48,8 @@ public class Engine {
     public static String gcd() {
         final int max = 100;
         Random random = new Random();
-        int a = random.nextInt(max);
-        int b = random.nextInt(max);
+        int a = 1 + random.nextInt(max);
+        int b = 1 + random.nextInt(max);
         int answer = 1;
         for (int i = 1; i <= a && i <= b; i++) {
             if (a % i == 0 && b % i == 0) {
