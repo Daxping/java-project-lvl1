@@ -2,7 +2,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Progression {
-    public static void runGame() {
+    public static void runGameProgression() {
         Engine.greeting();
         String userName = Engine.getUserName();
         System.out.println("What number is missing in the progression?");

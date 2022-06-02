@@ -3,7 +3,7 @@ import hexlet.code.Engine;
 
 public class Calc {
 
-    public static void runGame() {
+    public static void runGameCalc() {
         Engine.greeting();
         String userName = Engine.getUserName();
         System.out.println("What is the result of the expression?");
