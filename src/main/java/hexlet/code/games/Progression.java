@@ -1,10 +1,9 @@
 package hexlet.code.games;
-
 import hexlet.code.Engine;
 
 public class Progression {
     public static void runGame() {
-        System.out.println("Welcome to the Brain Games!");
+        Engine.greeting();
         String userName = Engine.getUserName();
         System.out.println("What number is missing in the progression?");
         final int numberOfRounds = 3;

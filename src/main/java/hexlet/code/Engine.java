@@ -9,6 +9,9 @@ public class Engine {
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
+    public static void greeting() {
+        System.out.println("Welcome to the Brain Games!");
+    }
     public static String getAnswer() {
         System.out.print("Your answer: ");
         Scanner sc = new Scanner(System.in);

@@ -1,10 +1,9 @@
 package hexlet.code.games;
-
 import hexlet.code.Engine;
 
 public class Gcd {
     public static void runGame() {
-        System.out.println("Welcome to the Brain Games!");
+        Engine.greeting();
         String userName = Engine.getUserName();
         System.out.println("Find the greatest common divisor of given numbers.");
         final int numberOfRounds = 3;

@@ -1,10 +1,9 @@
 package hexlet.code.games;
-
 import hexlet.code.Engine;
 
 public class Prime {
     public static void runGame() {
-        System.out.println("Welcome to the Brain Games!");
+        Engine.greeting();
         String userName = Engine.getUserName();
         System.out.println("Answer 'yes' if the number is prime, otherwise answer 'no'.");
         final int numberOfRounds = 3;
