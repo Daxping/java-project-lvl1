@@ -82,7 +82,7 @@ public class Engine {
     }
     public static String progression() {
         final int max = 10;
-        final int min = 5;
+        final int min = 6;
         Random random = new Random();
         int massiveLength = min + random.nextInt(max);
         int firstNumber = random.nextInt(max);
