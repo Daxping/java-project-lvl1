@@ -3,8 +3,7 @@ import hexlet.code.Engine;
 
 public class Progression {
     public static void runGameProgression() {
-        Engine.greeting();
-        String userName = Engine.getUserName();
+        String userName = Engine.greeting();
         System.out.println("What number is missing in the progression?");
         final int numberOfRounds = 3;
         for (var i = 0; i < numberOfRounds;) {

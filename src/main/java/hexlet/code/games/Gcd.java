@@ -3,8 +3,7 @@ import hexlet.code.Engine;
 
 public class Gcd {
     public static void runGameGcd() {
-        Engine.greeting();
-        String userName = Engine.getUserName();
+        String userName = Engine.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
         final int numberOfRounds = 3;
         for (var i = 0; i < numberOfRounds;) {

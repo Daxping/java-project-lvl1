@@ -4,8 +4,7 @@ import hexlet.code.Engine;
 public class Calc {
 
     public static void runGameCalc() {
-        Engine.greeting();
-        String userName = Engine.getUserName();
+        String userName = Engine.greeting();
         System.out.println("What is the result of the expression?");
         final int numberOfRounds = 3;
         for (var i = 0; i < numberOfRounds;) {

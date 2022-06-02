@@ -3,8 +3,7 @@ import hexlet.code.Engine;
 
 public class Even {
     public static void runGameEven() {
-        Engine.greeting();
-        String userName = Engine.getUserName();
+        String userName = Engine.greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         final int numberOfRounds = 3;
         for (var i = 0; i < numberOfRounds;) {

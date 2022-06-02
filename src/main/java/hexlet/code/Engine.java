@@ -4,13 +4,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    public static String getUserName() {
+
+    public static String greeting() {
+        System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
-    }
-    public static void greeting() {
-        System.out.println("Welcome to the Brain Games!");
     }
     public static String getAnswer() {
         System.out.print("Your answer: ");
