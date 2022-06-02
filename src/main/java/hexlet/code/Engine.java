@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -82,7 +81,7 @@ public class Engine {
     }
     public static String progression() {
         final int max = 10;
-        final int min = 6;
+        final int min = 5;
         Random random = new Random();
         int massiveLength = min + random.nextInt(max);
         int firstNumber = random.nextInt(max);
@@ -102,7 +101,8 @@ public class Engine {
                 strProgression[i] = "..";
             }
         }
-        System.out.println("Question: " + Arrays.toString(strProgression));
+        String str = String.join(" ", strProgression);
+        System.out.println("Question: " + str);
         String userAnswer = getAnswer();
         return userAnswer.equals(progression[skip]) ? "Correct!"
                 : "'" + userAnswer + "'"
