@@ -9,7 +9,7 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
-    public static String getChoice() {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -23,10 +23,6 @@ public class App {
         System.out.print("Your choice: ");
         String choice = sc.nextLine();
         System.out.println("\n");
-        return choice;
-    }
-    public static void runGame() {
-        String choice = getChoice();
         switch (choice) {
             case "1" -> Cli.greet();
             case "2" -> Even.runGameEven();
@@ -37,8 +33,4 @@ public class App {
             default -> throw new RuntimeException("There is no game with this number " + choice);
         }
     }
-    public static void main(String[] args) {
-        runGame();
-    }
 }
-
