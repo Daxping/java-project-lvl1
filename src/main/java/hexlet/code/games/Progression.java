@@ -6,33 +6,27 @@ public class Progression {
 
         String gameName = "What number is missing in the progression?";
         String[][] pair = Engine.getArray();
-        final int max = 10;
         final int min = 5;
         Random random = new Random();
-        int massiveLength;
-        int firstNumber;
-        int difference;
         for (var i = 0; i < Engine.numRound(); i++) {
-            massiveLength = min + random.nextInt(max);
-            firstNumber = random.nextInt(max);
-            difference = 1 + random.nextInt(max);
+            String answer;
+            int massiveLength = min + random.nextInt(min * 2);
+            int firstNumber = random.nextInt(min * 2);
+            int difference = 1 + random.nextInt(min * 2);
             String[] progression = new String[massiveLength];
-            progression[0] = Integer.toString(firstNumber);
+            progression[0] = String.valueOf(firstNumber);
             for (var x = 1; x < massiveLength; x++) {
-                progression[x] = Integer.toString((Integer.parseInt(progression[x - 1])
+                progression[x] = String.valueOf((Integer.parseInt(progression[x - 1])
                         + difference));
             }
-            String[] strProgression = new String[massiveLength];
             int skip = (int) (Math.random() * massiveLength);
+            answer = progression[skip];
             for (var y = 0; y < massiveLength; y++) {
-                if (y != skip) {
-                    strProgression[y] = progression[y];
-                } else {
-                    strProgression[y] = "..";
+                if (y == skip) {
+                    progression[y] = "..";
                 }
             }
-            String str = String.join(" ", strProgression);
-            String answer = progression[skip];
+            String str = String.join(" ", progression);
             pair[i][0] = str;
             pair[i][1] = answer;
         }
