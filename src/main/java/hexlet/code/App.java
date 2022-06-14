@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.games.Greet;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.Gcd;
@@ -24,7 +25,7 @@ public class App {
         String choice = sc.nextLine();
         System.out.println("\n");
         switch (choice) {
-            case "1" -> Cli.greet();
+            case "1" -> Greet.greeting();
             case "2" -> Even.runGame();
             case "3" -> Calc.runGame();
             case "4" -> Gcd.runGame();

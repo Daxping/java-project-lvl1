@@ -4,15 +4,15 @@ import java.util.Random;
 public class Progression {
     public static void runGame() {
 
-        String gameDescription = "What number is missing in the progression?";
-        String[][] pair = new String[Engine.numberOfRounds()][2];
+        String gameName = "What number is missing in the progression?";
+        String[][] pair = new String[Engine.numRound()][2];
         final int max = 10;
         final int min = 5;
         Random random = new Random();
         int massiveLength;
         int firstNumber;
         int difference;
-        for (var i = 0; i < Engine.numberOfRounds(); i++) {
+        for (var i = 0; i < Engine.numRound(); i++) {
             massiveLength = min + random.nextInt(max);
             firstNumber = random.nextInt(max);
             difference = 1 + random.nextInt(max);
@@ -36,7 +36,7 @@ public class Progression {
             pair[i][0] = str;
             pair[i][1] = answer;
         }
-        Engine.gameRounds(gameDescription, pair);
+        Engine.gameRounds(gameName, pair);
     }
 }
 

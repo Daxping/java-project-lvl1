@@ -3,12 +3,12 @@ import hexlet.code.Engine;
 
 public class Prime {
     public static void runGame() {
-        String gameDescription = "Answer 'yes' if the number is prime, otherwise answer 'no'.";
-        String[][] pair = new String[Engine.numberOfRounds()][2];
+        String gameName = "Answer 'yes' if the number is prime, otherwise answer 'no'.";
+        String[][] pair = new String[Engine.numRound()][2];
         int number;
         int countDivider;
 
-        for (var i = 0; i < Engine.numberOfRounds(); i++) {
+        for (var i = 0; i < Engine.numRound(); i++) {
             number = Engine.randomNumber();
             countDivider = 0;
             for (int x = 1; x <= number; x++) {
@@ -20,7 +20,7 @@ public class Prime {
             pair[i][0] = String.valueOf(number);
             pair[i][1] = answer;
         }
-        Engine.gameRounds(gameDescription, pair);
+        Engine.gameRounds(gameName, pair);
 
     }
 }

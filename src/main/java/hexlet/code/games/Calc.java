@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Calc {
     public static void runGame() {
-        String gameDescription = "What is the result of the expression?";
-        String[][] pair = new String[Engine.numberOfRounds()][2];
+        String gameName = "What is the result of the expression?";
+        String[][] pair = new String[Engine.numRound()][2];
         String[] operations = {"+", "-", "*"};
         int a;
         int b;
@@ -14,7 +14,7 @@ public class Calc {
         String currentOperation;
         Random random = new Random();
 
-        for (var i = 0; i < Engine.numberOfRounds(); i++) {
+        for (var i = 0; i < Engine.numRound(); i++) {
             a = Engine.randomNumber();
             b = Engine.randomNumber();
             indexOfOperation = random.nextInt(operations.length);
@@ -28,6 +28,6 @@ public class Calc {
             pair[i][0] = a + " " + currentOperation + " " + b;
             pair[i][1] = String.valueOf(answer);
         }
-        Engine.gameRounds(gameDescription, pair);
+        Engine.gameRounds(gameName, pair);
     }
 }
