@@ -5,12 +5,10 @@ public class Gcd {
     public static void runGame() {
         String gameName = "Find the greatest common divisor of given numbers.";
         String[][] pair = Engine.getArray();
-        int a;
-        int b;
         int answer = 1;
         for (var i = 0; i < Engine.numRound(); i++) {
-            a = 1 + Engine.randomNumber();
-            b = 1 + Engine.randomNumber();
+            int a = 1 + Engine.randomNumber();
+            int b = 1 + Engine.randomNumber();
             for (int x = 1; x <= a && x <= b; x++) {
                 if (a % x == 0 && b % x == 0) {
                     answer = x;
