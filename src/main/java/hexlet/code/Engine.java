@@ -10,11 +10,9 @@ public class Engine {
         for (var i = 0; i < numRound();) {
             String result = getResult(pair, i);
             System.out.println(result);
-            if (result.equals("Correct!")) {
-                i++;
-            } else {
+            i = iCounter(result, i);
+            if (i == numRound() + 1) {
                 System.out.println("Let's try again, " + userName + "!");
-                i = numRound() + 1;
             }
             if (i == numRound()) {
                 System.out.println("Congratulations, " + userName + "!");
@@ -49,6 +47,7 @@ public class Engine {
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
+
     public static String getResult(String[][] pair, int i) {
         System.out.println("Question: " + pair[i][0]);
         System.out.print("Your answer: ");
@@ -56,6 +55,9 @@ public class Engine {
         return userAnswer.equals(pair[i][1]) ? "Correct!"
                 : "'" + userAnswer + "'" + " is wrong answer ;(. "
                 + "Correct answer was " + "'" + pair[i][1] + "'";
+    }
+    public static int iCounter(String result, int i) {
+        return result.equals("Correct!") ? i + 1 : numRound() + 1;
     }
 
 }
