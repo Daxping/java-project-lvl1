@@ -9,17 +9,20 @@ public class Gcd {
         for (var i = 0; i < Engine.numRound(); i++) {
             int a = 1 + Engine.randomNumber();
             int b = 1 + Engine.randomNumber();
-            while (a != 0 && b != 0) {
-                if (a > b) {
-                    a = a % b;
-                } else {
-                    b = b % a;
-                }
-            }
-            answer = a + b;
+            answer = gcd(a, b);
             pair[i][0] = a + " " + b;
             pair[i][1] = String.valueOf(answer);
         }
         Engine.gameRounds(gameName, pair);
+    }
+    public static int gcd(int a, int b) {
+        while (a != 0 && b != 0) {
+            if (a > b) {
+                a = a % b;
+            } else {
+                b = b % a;
+            }
+        }
+        return a + b;
     }
 }
