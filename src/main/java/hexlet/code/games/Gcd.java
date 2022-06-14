@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 public class Gcd {
     public static void runGame() {
         String gameName = "Find the greatest common divisor of given numbers.";
-        String[][] pair = new String[Engine.numRound()][2];
+        String[][] pair = Engine.getArray();
         int a;
         int b;
         int answer = 1;

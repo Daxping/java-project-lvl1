@@ -41,4 +41,8 @@ public class Engine {
         final int numberOfRounds = 3;
         return numberOfRounds;
     }
+    public static String[][] getArray() {
+        String[][] pair = new String[Engine.numRound()][2];
+        return pair;
+    }
 }

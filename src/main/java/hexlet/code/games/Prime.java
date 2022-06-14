@@ -4,9 +4,10 @@ import hexlet.code.Engine;
 public class Prime {
     public static void runGame() {
         String gameName = "Answer 'yes' if the number is prime, otherwise answer 'no'.";
-        String[][] pair = new String[Engine.numRound()][2];
+        String[][] pair = Engine.getArray();
         int number;
         int countDivider;
+
 
         for (var i = 0; i < Engine.numRound(); i++) {
             number = Engine.randomNumber();

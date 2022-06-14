@@ -6,7 +6,7 @@ import java.util.Random;
 public class Calc {
     public static void runGame() {
         String gameName = "What is the result of the expression?";
-        String[][] pair = new String[Engine.numRound()][2];
+        String[][] pair = Engine.getArray();
         String[] operations = {"+", "-", "*"};
         int a;
         int b;

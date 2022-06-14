@@ -5,7 +5,7 @@ public class Progression {
     public static void runGame() {
 
         String gameName = "What number is missing in the progression?";
-        String[][] pair = new String[Engine.numRound()][2];
+        String[][] pair = Engine.getArray();
         final int max = 10;
         final int min = 5;
         Random random = new Random();

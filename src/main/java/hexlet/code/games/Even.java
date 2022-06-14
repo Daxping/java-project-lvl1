@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 public class Even {
     public static void runGame() {
         String gameName = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[][] pair = new String[Engine.numRound()][2];
+        String[][] pair = Engine.getArray();
         int number;
         for (var i = 0; i < Engine.numRound(); i++) {
             number = Engine.randomNumber();
