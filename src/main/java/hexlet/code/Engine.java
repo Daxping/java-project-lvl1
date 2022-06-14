@@ -19,35 +19,29 @@ public class Engine {
             }
         }
     }
-
     public static int randomNumber() {
         final int max = 100;
         Random random = new Random();
         return random.nextInt(max);
     }
-
     public static int numRound() {
         final int numberOfRounds = 3;
         return numberOfRounds;
     }
-
     public static String[][] getArray() {
         String[][] pair = new String[Engine.numRound()][2];
         return pair;
     }
-
     public static String getUserName() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
-
     public static String getAnswer() {
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
-
     public static String getResult(String[][] pair, int i) {
         System.out.println("Question: " + pair[i][0]);
         System.out.print("Your answer: ");
@@ -59,5 +53,4 @@ public class Engine {
     public static int iCounter(String result, int i) {
         return result.equals("Correct!") ? i + 1 : numRound() + 1;
     }
-
 }
