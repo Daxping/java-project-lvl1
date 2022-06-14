@@ -25,11 +25,13 @@ public class App {
         System.out.println("\n");
         switch (choice) {
             case "1" -> Cli.greet();
-            case "2" -> Even.runGameEven();
-            case "3" -> Calc.runGameCalc();
-            case "4" -> Gcd.runGameGcd();
-            case "5" -> Progression.runGameProgression();
-            case "6" -> Prime.runGamePrime();
+            case "2" -> Even.runGame();
+            case "3" -> Calc.runGame();
+            case "4" -> Gcd.runGame();
+            case "5" -> Progression.runGame();
+            case "6" -> Prime.runGame();
+            case "0" -> {
+            }
             default -> throw new RuntimeException("There is no game with this number " + choice);
         }
     }

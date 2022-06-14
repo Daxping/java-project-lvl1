@@ -1,24 +1,42 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-
+import java.util.Random;
 public class Progression {
-    public static void runGameProgression() {
-        String userName = Engine.greeting();
-        System.out.println("What number is missing in the progression?");
-        final int numberOfRounds = 3;
-        for (var i = 0; i < numberOfRounds;) {
-            String result = Engine.progression();
-            System.out.println(result);
-            if (result.equals("Correct!")) {
-                i++;
-            } else {
-                i = numberOfRounds + 1;
-                System.out.println("Let's try again, " + userName + "!");
+    public static void runGame() {
+
+        String gameDescription = "What number is missing in the progression?";
+        String[][] pair = new String[Engine.numberOfRounds()][2];
+        final int max = 10;
+        final int min = 5;
+        Random random = new Random();
+        int massiveLength;
+        int firstNumber;
+        int difference;
+        for (var i = 0; i < Engine.numberOfRounds(); i++) {
+            massiveLength = min + random.nextInt(max);
+            firstNumber = random.nextInt(max);
+            difference = 1 + random.nextInt(max);
+            String[] progression = new String[massiveLength];
+            progression[0] = Integer.toString(firstNumber);
+            for (var x = 1; x < massiveLength; x++) {
+                progression[x] = Integer.toString((Integer.parseInt(progression[x - 1])
+                        + difference));
             }
-            if (i == numberOfRounds) {
-                System.out.println("Congratulations, " + userName + "!");
+            String[] strProgression = new String[massiveLength];
+            int skip = (int) (Math.random() * massiveLength);
+            for (var y = 0; y < massiveLength; y++) {
+                if (y != skip) {
+                    strProgression[y] = progression[y];
+                } else {
+                    strProgression[y] = "..";
+                }
             }
+            String str = String.join(" ", strProgression);
+            String answer = progression[skip];
+            pair[i][0] = str;
+            pair[i][1] = answer;
         }
+        Engine.gameRounds(gameDescription, pair);
     }
 }
 
