@@ -18,14 +18,14 @@ public class Engine {
             if (userAnswer.equals(roundsData[i][1])) {
                 System.out.println("Correct!");
                 i++;
+                if (i == ROUNDS_COUNT) {
+                    System.out.println("Congratulations, " + userName + "!");
+                }
             } else {
                 System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. "
                         + "Correct answer was " + "'" + roundsData[i][1] + "'");
                 System.out.println("Let's try again, " + userName + "!");
                 break;
-            }
-            if (i == ROUNDS_COUNT) {
-                System.out.println("Congratulations, " + userName + "!");
             }
         }
         sc.close();
