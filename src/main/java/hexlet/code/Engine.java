@@ -15,15 +15,14 @@ public class Engine {
             System.out.println("Question: " + roundsData[i][0]);
             System.out.print("Your answer: ");
             String userAnswer = sc.nextLine();
-            String result =  userAnswer.equals(roundsData[i][1]) ? "Correct!"
-                    : "'" + userAnswer + "'" + " is wrong answer ;(. "
-                    + "Correct answer was " + "'" + roundsData[i][1] + "'";
-            System.out.println(result);
-            if (!result.equals("Correct!")) {
+            if (userAnswer.equals(roundsData[i][1])) {
+                System.out.println("Correct!");
+                i++;
+            } else {
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. "
+                        + "Correct answer was " + "'" + roundsData[i][1] + "'");
                 System.out.println("Let's try again, " + userName + "!");
                 break;
-            } else {
-                i++;
             }
             if (i == ROUNDS_COUNT) {
                 System.out.println("Congratulations, " + userName + "!");
