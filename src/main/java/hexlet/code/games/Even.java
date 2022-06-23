@@ -1,17 +1,27 @@
 package hexlet.code.games;
+
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class Even {
+    private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
     public static void runGame() {
-        String gameName = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[][] pair = Engine.getArray();
-        int number;
-        for (var i = 0; i < Engine.numRound(); i++) {
-            number = Engine.randomNumber();
-            String answer = number % 2 == 0 ? "yes" : "no";
-            pair[i][0] = String.valueOf(number);
-            pair[i][1] = answer;
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            roundsData[i] = getOneRoundData();
         }
-        Engine.gameRounds(gameName, pair);
+        Engine.run(DESCRIPTION, roundsData);
+    }
+
+    public static String isEven(int number) {
+        return number % 2 == 0 ? "yes" : "no";
+    }
+
+    public static String[] getOneRoundData() {
+        int number = Util.getRandomNumber(Util.MIN_VALUE, Util.MAX_VALUE);
+        String answer = isEven(number);
+        return new String[]{String.valueOf(number), answer};
+
     }
 }

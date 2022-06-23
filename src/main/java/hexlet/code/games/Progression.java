@@ -1,42 +1,52 @@
 package hexlet.code.games;
-import hexlet.code.Engine;
-public class Progression {
-    public static void runGame() {
-        String gameName = "What number is missing in the progression?";
-        String[][] pair = Engine.getArray();
 
-        for (var i = 0; i < Engine.numRound(); i++) {
-            String answer;
-            String[] progression = getProgression();
-            int skip = (int) (Math.random() * progression.length);
-            answer = progression[skip];
-            String str = getStr(progression, skip);
-            pair[i][0] = str;
-            pair[i][1] = answer;
+import hexlet.code.Engine;
+import hexlet.code.Util;
+
+public class Progression {
+    private static final String DESCRIPTION = "What number is missing in the progression?";
+    private static final int MIN_LENGTH = 5;
+    private static final int MAX_LENGTH = 15;
+
+    public static void runGame() {
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            roundsData[i] = getOneRoundData();
         }
-        Engine.gameRounds(gameName, pair);
+        Engine.run(DESCRIPTION, roundsData);
     }
-    public static String[] getProgression() {
-        final int min = 5;
-        int massiveLength = min + (int) (Math.random() * min * 2);
-        int firstNumber = (int) (Math.random() * min * 2);
-        int difference = 1 + (int) (Math.random() * min * 2);
-        String[] progression = new String[massiveLength];
-        progression[0] = String.valueOf(firstNumber);
+
+    public static int[] getProgression(int massiveLength, int firstNumber, int difference) {
+        int[] progression = new int[massiveLength];
+        progression[0] = firstNumber;
         for (var i = 1; i < massiveLength; i++) {
-            progression[i] = String.valueOf((Integer.parseInt(progression[i - 1]) + difference));
+            progression[i] = progression[i - 1] + difference;
         }
         return progression;
     }
-    public static String getStr(String[] progression, int skip) {
+
+    public static String getStr(int[] progression, int skip) {
         String str = "";
+        String[] strProgression = new String[progression.length];
         for (var i = 0; i < progression.length; i++) {
+            strProgression[i] = String.valueOf(progression[i]);
             if (i == skip) {
-                progression[i] = "..";
+                strProgression[i] = "..";
             }
-            str = String.join(" ", progression);
+            str = String.join(" ", strProgression);
         }
         return str;
+    }
+
+    public static String[] getOneRoundData() {
+        int massiveLength = Util.getRandomNumber(MIN_LENGTH, MAX_LENGTH);
+        int firstNumber = Util.getRandomNumber(Util.MIN_VALUE, MAX_LENGTH);
+        int difference = Util.getRandomNumber(Util.MIN_VALUE, MAX_LENGTH);
+        int[] progression = getProgression(massiveLength, firstNumber, difference);
+        int skip = Util.getRandomNumber(0, progression.length);
+        String answer = String.valueOf(progression[skip]);
+        String str = getStr(progression, skip);
+        return new String[]{str, answer};
     }
 }
 

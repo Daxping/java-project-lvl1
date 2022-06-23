@@ -1,33 +1,31 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.Util;
 
 public class Calc {
-    public static void runGame() {
-        String gameName = "What is the result of the expression?";
-        String[][] pair = Engine.getArray();
-        String[] operations = {"+", "-", "*"};
-        int a;
-        int b;
-        int indexOfOperation;
-        String currentOperation;
-        Random random = new Random();
+    private static final String DESCRIPTION = "What is the result of the expression?";
+    private static final String[] OPERATIONS = {"+", "-", "*"};
 
-        for (var i = 0; i < Engine.numRound(); i++) {
-            a = Engine.randomNumber();
-            b = Engine.randomNumber();
-            indexOfOperation = random.nextInt(operations.length);
-            currentOperation = operations[indexOfOperation];
-            int answer = switch (currentOperation) {
-                case "+" -> a + b;
-                case "-" -> a - b;
-                case "*" -> a * b;
-                default -> throw new RuntimeException("Unknown operator: " + currentOperation);
-            };
-            pair[i][0] = a + " " + currentOperation + " " + b;
-            pair[i][1] = String.valueOf(answer);
+    public static void runGame() {
+        String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            roundsData[i] = getOneRoundData();
         }
-        Engine.gameRounds(gameName, pair);
+        Engine.run(DESCRIPTION, roundsData);
+    }
+
+    public static String[] getOneRoundData() {
+        int a = Util.getRandomNumber(Util.MIN_VALUE, Util.MAX_VALUE);
+        int b = Util.getRandomNumber(Util.MIN_VALUE, Util.MAX_VALUE);
+        int indexOfOperation = Util.getRandomNumber(0, OPERATIONS.length);
+        String currentOperation = OPERATIONS[indexOfOperation];
+        int answer = switch (currentOperation) {
+            case "+" -> a + b;
+            case "-" -> a - b;
+            case "*" -> a * b;
+            default -> throw new RuntimeException("Unknown operator: " + currentOperation);
+        };
+        return new String[]{a + " " + currentOperation + " " + b, String.valueOf(answer)};
     }
 }
