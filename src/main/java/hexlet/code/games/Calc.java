@@ -18,9 +18,9 @@ public class Calc {
     }
 
     private static String[] generateOneRoundData() {
-        int a = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
-        int b = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
-        int indexOfOperation = Util.getRandomNumber(0, OPERATIONS.length);
+        int a = Util.generateRandomNumber(MIN_VALUE, MAX_VALUE);
+        int b = Util.generateRandomNumber(MIN_VALUE, MAX_VALUE);
+        int indexOfOperation = Util.generateRandomNumber(0, OPERATIONS.length);
         char currentOperation = OPERATIONS[indexOfOperation];
         int answer = calculate(a, b, currentOperation);
         return new String[]{a + " " + currentOperation + " " + b, String.valueOf(answer)};

@@ -27,8 +27,8 @@ public class Gcd {
     }
 
     private static String[] generateOneRoundData() {
-        int a = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
-        int b = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
+        int a = Util.generateRandomNumber(MIN_VALUE, MAX_VALUE);
+        int b = Util.generateRandomNumber(MIN_VALUE, MAX_VALUE);
         int answer = calculateGCD(a, b);
         return new String[]{a + " " + b, String.valueOf(answer)};
     }

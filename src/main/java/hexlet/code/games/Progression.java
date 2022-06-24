@@ -41,11 +41,11 @@ public class Progression {
     }
 
     private static String[] generateOneRoundData() {
-        int massiveLength = Util.getRandomNumber(MIN_LENGTH, MAX_LENGTH);
-        int firstNumber = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
-        int difference = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
+        int massiveLength = Util.generateRandomNumber(MIN_LENGTH, MAX_LENGTH);
+        int firstNumber = Util.generateRandomNumber(MIN_VALUE, MAX_VALUE);
+        int difference = Util.generateRandomNumber(MIN_VALUE, MAX_VALUE);
         int[] progression = generateProgression(massiveLength, firstNumber, difference);
-        int skip = Util.getRandomNumber(0, progression.length);
+        int skip = Util.generateRandomNumber(0, progression.length);
         String answer = String.valueOf(progression[skip]);
         String question = buildQuestion(progression, skip);
         return new String[]{question, answer};

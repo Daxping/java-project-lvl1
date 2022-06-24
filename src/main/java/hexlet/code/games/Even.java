@@ -20,7 +20,7 @@ public class Even {
     }
 
     private static String[] generateOneRoundData() {
-        int number = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
+        int number = Util.generateRandomNumber(MIN_VALUE, MAX_VALUE);
         String answer = isEven(number) ? "yes" : "no";
         return new String[]{String.valueOf(number), answer};
 
