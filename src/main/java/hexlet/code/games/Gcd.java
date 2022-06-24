@@ -5,16 +5,17 @@ import hexlet.code.Util;
 
 public class Gcd {
     private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
-
+    private static final int MIN_VALUE = 1;
+    private static final int MAX_VALUE = 100;
     public static void runGame() {
         String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
         for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            roundsData[i] = getOneRoundData();
+            roundsData[i] = generateOneRoundData();
         }
         Engine.run(DESCRIPTION, roundsData);
     }
 
-    public static int calculateGCD(int a, int b) {
+    private static int calculateGCD(int a, int b) {
         while (a != 0 && b != 0) {
             if (a > b) {
                 a = a % b;
@@ -25,9 +26,9 @@ public class Gcd {
         return a + b;
     }
 
-    public static String[] getOneRoundData() {
-        int a = Util.getRandomNumber(Util.MIN_VALUE, Util.MAX_VALUE);
-        int b = Util.getRandomNumber(Util.MIN_VALUE, Util.MAX_VALUE);
+    private static String[] generateOneRoundData() {
+        int a = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
+        int b = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
         int answer = calculateGCD(a, b);
         return new String[]{a + " " + b, String.valueOf(answer)};
     }

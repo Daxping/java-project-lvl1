@@ -7,16 +7,18 @@ public class Progression {
     private static final String DESCRIPTION = "What number is missing in the progression?";
     private static final int MIN_LENGTH = 5;
     private static final int MAX_LENGTH = 15;
+    private static final int MIN_VALUE = 1;
+    private static final int MAX_VALUE = 100;
 
     public static void runGame() {
         String[][] roundsData = new String[Engine.ROUNDS_COUNT][2];
         for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            roundsData[i] = getOneRoundData();
+            roundsData[i] = generateOneRoundData();
         }
         Engine.run(DESCRIPTION, roundsData);
     }
 
-    public static int[] getProgression(int massiveLength, int firstNumber, int difference) {
+    private static int[] generateProgression(int massiveLength, int firstNumber, int difference) {
         int[] progression = new int[massiveLength];
         progression[0] = firstNumber;
         for (var i = 1; i < massiveLength; i++) {
@@ -25,28 +27,28 @@ public class Progression {
         return progression;
     }
 
-    public static String getStr(int[] progression, int skip) {
-        String str = "";
+    private static String buildQuestion(int[] progression, int skip) {
+        String question = "";
         String[] strProgression = new String[progression.length];
         for (var i = 0; i < progression.length; i++) {
             strProgression[i] = String.valueOf(progression[i]);
             if (i == skip) {
                 strProgression[i] = "..";
             }
-            str = String.join(" ", strProgression);
+            question = String.join(" ", strProgression);
         }
-        return str;
+        return question;
     }
 
-    public static String[] getOneRoundData() {
+    private static String[] generateOneRoundData() {
         int massiveLength = Util.getRandomNumber(MIN_LENGTH, MAX_LENGTH);
-        int firstNumber = Util.getRandomNumber(Util.MIN_VALUE, MAX_LENGTH);
-        int difference = Util.getRandomNumber(Util.MIN_VALUE, MAX_LENGTH);
-        int[] progression = getProgression(massiveLength, firstNumber, difference);
+        int firstNumber = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
+        int difference = Util.getRandomNumber(MIN_VALUE, MAX_VALUE);
+        int[] progression = generateProgression(massiveLength, firstNumber, difference);
         int skip = Util.getRandomNumber(0, progression.length);
         String answer = String.valueOf(progression[skip]);
-        String str = getStr(progression, skip);
-        return new String[]{str, answer};
+        String question = buildQuestion(progression, skip);
+        return new String[]{question, answer};
     }
 }
 

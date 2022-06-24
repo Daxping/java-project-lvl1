@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        Scanner getChoice = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("""
                 Please enter the game number and press Enter.
                 1 - Greet
@@ -21,7 +21,7 @@ public class App {
                 6 - Prime
                 0 - Exit""");
         System.out.print("Your choice: ");
-        String choice = getChoice.nextLine();
+        String choice = scanner.nextLine();
         System.out.println("\n");
         switch (choice) {
             case "1" -> Cli.greet();
@@ -33,6 +33,6 @@ public class App {
             case "0" -> System.out.println("Goodbye!");
             default -> System.out.println("There is no game with this number");
         }
-        getChoice.close();
+        scanner.close();
     }
 }
