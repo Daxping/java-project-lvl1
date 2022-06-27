@@ -24,7 +24,7 @@ public class Engine {
                 System.out.println("Let's try again, " + userName + "!");
                 return;
             }
-        System.out.println("Correct!");
+            System.out.println("Correct!");
         }
         System.out.println("Congratulations, " + userName + "!");
         scanner.close();
