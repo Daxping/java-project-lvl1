@@ -23,9 +23,8 @@ public class Engine {
                         + "Correct answer was " + "'" + answer + "'");
                 System.out.println("Let's try again, " + userName + "!");
                 return;
-            } else {
-                System.out.println("Correct!");
             }
+        System.out.println("Correct!");
         }
         System.out.println("Congratulations, " + userName + "!");
         scanner.close();
